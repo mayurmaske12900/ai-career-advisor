@@ -1,0 +1,9 @@
+John Doe
+Email: john@example.com
+
+Experience:
+- Worked on Python and SQL based data projects.
+- Built APIs in Java.
+- Familiar with React for frontend development.
+
+Skills: Python, SQL, Java, React
