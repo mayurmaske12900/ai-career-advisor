@@ -46,7 +46,7 @@ app.add_middleware(
 )
 
 # -----------------------------
-# Skills Catalog (shortened for brevity)
+# Skills Catalog (shortened)
 # -----------------------------
 skills_catalog = [
     "Python","Java","C++","SQL","React","Machine Learning","Data Analysis","AWS","Azure",
@@ -204,5 +204,12 @@ async def ats_score(resume: ResumeText, job: JobDescription):
 # Main
 # -----------------------------
 if __name__ == "__main__":
-    webbrowser.open("http://127.0.0.1:8000/docs")
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    # Detect if running locally (Render sets special env vars)
+    if os.getenv("RENDER") is None:
+        try:
+            webbrowser.open("http://127.0.0.1:8000/docs")
+        except Exception:
+            pass
+        uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    else:
+        port = int(os.environ.get
